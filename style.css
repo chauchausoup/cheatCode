@@ -1,0 +1,27 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  
+}
+
+
+
+.container{
+  border: 10px solid red;
+  min-height: 100vh;
+  box-sizing: border-box;
+ display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+#level{
+  margin: 20px;
+  font-size:5vh;
+}
+#levelScore{
+  margin: 20px;
+  font-size:5vh;
+    
+}
+

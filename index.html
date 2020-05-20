@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KONAMI CODE</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="upper_panel">
+        <!-- shows the value of typed code here -->
+        Press Key to start
+      </div>
+
+      <div class="lower_panel">
+        <span id="level">LEVEL</span>
+        <span id="levelScore">200</span>
+      </div>
+    </div>
+
+    <script>
+      //konami code here
+
+      var targetArray = [
+        "ArrowUp",
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowLeft",
+        "ArrowRight",
+        "b",
+        "a",
+        "Enter",
+      ];
+
+      var array = [];
+      var newArray = [];
+
+      window.addEventListener("keyup", (e) => {
+        document.querySelector(".upper_panel").innerHTML = e.key;
+
+        array.push(e.key);
+
+        if (e.key === "Enter") {
+          var n = array.splice(array.indexOf("Enter") - 10, targetArray.length);
+        }
+
+        console.log("new array", n);
+
+        if (JSON.stringify(n) === JSON.stringify(targetArray)) {
+          var inner = document.getElementById("levelScore").innerHTML;
+
+          document.getElementById("levelScore").innerHTML =
+            parseInt(inner, 10) + 200;
+        }
+      });
+    </script>
+  </body>
+</html>
